@@ -88,29 +88,11 @@
             listItem.classList.remove("uncomplete", "in-progress", "complete");
             listItem.classList.add(status);
 
-            // save task status to local storage
-            localStorage.setItem("tasks", taskList.innerHTML);
-        }
-
-        // load tasks from local storage
-        function loadTasks() {
-            const tasks = localStorage.getItem("tasks");
-
-            if (tasks !== null) {
-                taskList.innerHTML = tasks;
-            }
-
-            const statusSelects = taskList.querySelectorAll(".status-select");
-            statusSelects.forEach((statusSelect) => {
-                statusSelect.addEventListener("change", updateTaskStatus);
-            });
         }
 
         // add event listeners
         newTaskForm.addEventListener("submit", addTask);
         taskList.addEventListener("click", deleteTask);
-
-        loadTasks();
     </script>
     <div id="credits">
         <p>Made by </p><a href="https://github.com/jadenkiu">jadenkiu</a><br>
